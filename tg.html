@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <center><iframe src="./bus.jpg" width="100%" height="220" frameorder="1"></iframe></center>
+    <form action="" autocorrect="off" method="get" enctype="text" >
+        <fieldset>
+            <legend>Application Status</legend>
+            <center>
+                <table align="left">
+            <tr>
+                <td><label for="name">Name:</label></td>
+                <td><input type="text" id="name" name="Name" required></td>
+                <td><label for="name">Father's/Guardian Name*</label></td>
+                <td><input type="text" id="name" name="Name" required></td>
+            </tr>
+            <tr>
+                <td><label for="date" >Date of Birth:</label></td>              
+                <td><input type="date" id="date" name="date" required></td>
+                <td><label for="gender">Gender:</label></td>
+                <td><label for="male">Male</label>          
+                <input type="radio" id="male" name="gender" required>
+                <label for="female">Female</label>
+                <input type="radio" id="female" name="gender" required></td>
+            </tr>
+            <tr>
+                <td><label for="age">Age as No:</label></td>
+                <td><input type="text" id="age" name="age" required maxlength="2" minlength="1"></td>
+                <td><label for="aadhaar">Aadhaar No:</label></td>
+                <td><input type="text" id="aadhaar" name="aadhaar" maxlength="12" minlength="12" required></td>
+            </tr>
+            <tr>
+                <td><label for="whatapp">WhatApp No:</label></td>
+                <td><input type="text" id="whatapp" name="whatapp" maxlength="10" minlength="10" requored></td>
+                <td><label for="email">Email</label></td>
+                <td><input type="text" id="email" name="email" required></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="photo">Photo:</label>
+                </td>
+                <td><input type="file" id="photo" name="photo" required></td>
+            </tr>    
+            </table></center>
+        </fieldset>
+    </form>
+
+    <form action="" autocorrect="off" method="get" enctype="text">
+    <fieldset>
+        <legend>RESIDENTIAL ADDRESS DETAILS</legend>
+        <center>
+            <table width="54%" align="left">
+                <tr>
+                    <td><label for="applicant addresses">Applicant's Address:</label></td>
+                    <td><textarea name="applicant's address" required></textarea></td>
+                    <td><label for="district">District:</label></td>
+                    <td><input type="text" name="district" id="district" required></td>
+                </tr>
+                <tr>
+                    <td><label for="mandal">Mandal:</label></td>
+                    <td >
+                        <select name="mandal" id="mandal">
+                            <option value="select">---select---</option>
+                            <option value="HYDERABAD">HYDERABAD</option>
+                            <option value="NANDYAL">NANDYAL</option>
+                        </select>
+                    </td>
+                    <td><label for="village">Village:</label></td>
+                    <td>
+                        <select name="village" id="village">
+                            <option value="select">---select---</option>
+                            <option value="KAKARAWADA">KAKARAWADA</option>
+                            <option value="UYYALAWADA">UYYALAWADA</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="pincode">Pincode:</label></td>
+                    <td><input type="text" name="pincode" id="pincode" maxlength="6" minlength="6" required></td>
+                </tr>
+            </table>
+            </center>
+        </form>        
+    </fieldset>
+    <form action="" autocorrect="off" method="get" enctype="text">
+    <fieldset>
+        <legend>PASS TYPE DETAILS</legend>
+        <table align="left">
+            <tr >
+                <td><label for="city">City:</label></td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td><select name="mandal" id="mandal">
+                            <option value="select">---select---</option>
+                            <option value="HYDERABAD">HYDERABAD</option>
+                            <option value="NANDYAL">NANDYAL</option></select></td>
+            </tr><br>
+            <tr >
+                <td><label for="pass type">Pass Type:</label></td>
+                <td><select name="pass type" id="pass type">
+                            <option value="select">---select---</option>
+                            <option value="general pass">general pass</option>
+                            <option value="ordinary pass">Ordinary pass</option></select></td>
+            </tr>  
+            </table>           
+    </fieldset>
+    </form>
+    <form action="./submit.html">
+    <center>
+        <img src="./captha_image.jpg" alt="capthe"><br>
+        <input type="text" required><br>
+        <input type="submit">
+
+    </center>
+    </form>
+</body>
+</html>
