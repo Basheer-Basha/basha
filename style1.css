@@ -1,0 +1,942 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* --- Top Bar --- */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f7f2;
+  padding: 20px 70px;
+  font-size: 2rem;
+  color: #555;
+}
+
+.social-icons i {
+  margin-right: 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #444;
+  transition: 0.3s;
+}
+
+.social-icons i:hover {
+  color: #c19d60;
+}
+
+.user-links a {
+  text-decoration: none;
+  color: #444;
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+.user-links a i {
+  margin-right: 5px;
+}
+
+.user-links a:hover {
+  color: #c19d60;
+}
+
+/* --- Main Navbar --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 70px;
+  background: #f8f7f2;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #000;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.logo span {
+  color: #888;
+  font-weight: 400;
+}
+
+/* --- Menu Links --- */
+.menu a {
+  text-decoration: none;
+  color: #555;
+  margin: 0 18px;
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.menu a.active {
+  color: #c19d60;
+}
+
+.menu a:hover {
+  color: #000;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  font-family: Arial, sans-serif;
+}
+
+/* Dropdown link */
+.dropdown > a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.dropdown > a:hover {
+  color: #000000; /* Change to desired hover color */
+}
+
+/* Dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%; /* below the main link */
+  left: 0;
+  background-color: #fff;
+  min-width: 150px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/* Dropdown links inside the content */
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+
+.dropdown-content a:hover {
+  background-color: #c4c8cd; /* Highlight on hover */
+  color: #fff;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+/* ===== HERO SECTION ===== */
+.hero-container {
+  width: 100%;
+  background-color: #f8f7f2; /* soft beige like Booksaw */
+  padding: 80px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* responsive stacking */
+  gap: 40px;
+}
+
+/* === Left text area === */
+.hero-text {
+  flex: 1 1 45%;
+  color: #333;
+}
+
+.hero-text h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1c1c1c;
+  margin-bottom: 20px;
+  font-family: "Playfair Display", serif;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+  font-family: "Poppins", sans-serif;
+  max-width: 500px;
+}
+
+/* === Right image area === */
+.hero-image {
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  transition: transform 0.4s ease;
+}
+
+.hero-image img:hover {
+  transform: scale(1.03);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 992px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text {
+    flex: 1 1 100%;
+    order: 2;
+  }
+
+  .hero-image {
+    flex: 1 1 100%;
+    order: 1;
+  }
+
+  .hero-text h1 {
+    font-size: 3rem;
+  }
+
+  .hero-text p {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-text h1 {
+    font-size: 2.3rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .hero-image img {
+    max-width: 350px;
+  }
+}
+
+/* ===== BRAND SECTION ===== */
+.brand-section {
+  width: 100%;
+  background-color: #f8f7f2;
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brand-container {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 30px 0;
+}
+
+/* Individual Brand Logo */
+.brand-container img {
+  max-width: 140px;
+  opacity: 0.6;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+
+.brand-container img:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .brand-container {
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .brand-container img {
+    max-width: 110px;
+  }
+}
+
+@media (max-width: 600px) {
+  .brand-container {
+    gap: 25px;
+  }
+
+  .brand-container img {
+    max-width: 90px;
+  }
+}
+
+
+/* ===========================
+   FEATURED BOOKS SECTION
+=========================== */
+.Featured {
+  background-color: #f8f7f2;
+  padding: 50px 0;
+}
+
+.featured-books-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.quality-items-text {
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  color: #666;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.books-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.book-card {
+  background: #f8f7f2;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 15px;
+  width: 22%;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.book-card:hover {
+  transform: translateY(-10px);
+}
+
+.book-image-container {
+  position: relative;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.book-image-container img {
+  width: 100%;
+  height: auto;
+}
+
+.cart-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.book-image-container:hover .cart-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.author {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #c19d60;
+}
+
+/* ===========================
+   MIDDLE BOOK FEATURE
+=========================== */
+.Middle {
+  background-color: #f8f7f2;
+  padding: 50px 0;
+}
+
+.middle-content {
+  background-color: #f8f7f2;
+  padding: 50px 0;
+}
+
+.middle-content .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.book-image {
+  width: 40%;
+  margin-right: 20px;
+}
+
+.book-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.book-info {
+  width: 60%;
+}
+
+.title-divider {
+  border: 0;
+  height: 1px;
+  background: #ccc;
+  width: 60px;
+  margin: 20px 0;
+}
+
+.book-title {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.book-description {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 500px;
+  font-family: "Poppins", sans-serif;
+}
+
+.book-price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #c19d60; /* Booksaw gold tone */
+  margin-bottom: 25px;
+  font-family: "Playfair Display", serif;
+}
+
+.shop-link {
+  background-color: #c19d60; /* gold button */
+  color: #fff;
+  padding: 12px 30px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.shop-link:hover {
+  background-color: #000; /* dark hover */
+  color: #fff;
+  transform: translateY(-3px); /* subtle lift */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ===========================
+   POPULAR BOOKS SECTION
+=========================== */
+.Popular {
+  padding: 70px 0;
+  background-color: #f8f7f2;
+  font-family: "Poppins", sans-serif;
+}
+
+.popular-books-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.quality-items-text1 {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.section-title1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  color: #222;
+  font-family: "Playfair Display", serif;
+}
+
+/* Genre Buttons / Tabs */
+.items {
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.items a {
+  text-decoration: none;
+  color: #333;
+  margin: 0 10px;
+  padding: 6px 14px;
+  border: 1px solid transparent;
+  border-radius: 30px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.items a:hover,
+.items a.active {
+  background-color: #c19d60; /* gold accent */
+  color: #fff;
+  border-color: #c19d60;
+}
+
+/* Books Grid */
+.books-container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.book-card1 {
+  background: #f8f7f2;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 15px;
+  width: 23%;
+  text-align: left;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.book-card1:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Image and Add-to-Cart Overlay */
+.book-image-container1 {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 15px;
+
+}
+
+.book-image-container1 img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.book-card1:hover img {
+  transform: scale(1.05);
+}
+
+.cart-text1 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+}
+
+.book-image-container1:hover .cart-text1 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Text below book */
+.book-card1 h3 {
+  font-size: 1rem;
+  color: #222;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.author1 {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.price1 {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #c19d60;
+  display: flex;
+  justify-content: center;
+}
+
+
+.books-container1 {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.book-card1 {
+  background: #f8f7f2;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 15px;
+  width: 22%;
+  cursor: pointer;
+}
+
+.book-card1:hover {
+  transform: translateY(-10px);
+}
+
+.book-image-container1 {
+  position: relative;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.book-image-container1 img {
+  width: 100%;
+  height: auto;
+}
+
+.cart-text1 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.book-image-container1:hover .cart-text1 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.author1 {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.price1 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.book-card1 h3 {
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+/* ==========================
+   APP DOWNLOAD SECTION
+========================== */
+.app-section {
+  background-color: #f9f7f1;
+  padding: 80px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.app-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  /* max-width: 1200px; */
+  width: 60%;
+  flex-wrap: wrap;
+}
+
+/* Phone Image */
+.app-image img {
+  width: 250px;
+  max-width: 100%;
+  border-radius: 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Right Side Content */
+.app-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.app-title {
+  font-size: 42px;
+  color: #222;
+  margin-bottom: 20px;
+  font-weight: 600;
+  position: relative;
+}
+
+.app-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 80px;
+  height: 3px;
+  background-color: #c4a052;
+}
+
+.app-description {
+  color: #666;
+  line-height: 1.8;
+  font-size: 16px;
+  margin-bottom: 30px;
+  max-width: 500px;
+}
+
+.download-buttons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.store-btn img {
+  width: 160px;
+  transition: transform 0.3s ease;
+}
+
+.store-btn img:hover {
+  transform: scale(1.05);
+}
+/* ===============================
+   FOOTER STYLING
+=============================== */
+
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background-color: #fffdf7;
+}
+
+.footer {
+  background-color: #fdfcf7;
+  padding: 60px ;
+  color: #2b2b2b;
+  border-top: 1px solid #e8e6e0;
+  
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.footer-logo {
+  flex: 1 1 250px;
+  max-width: 300px;
+}
+
+.footer-logo h1 {
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+}
+
+.footer-logo span {
+  color: #666;
+  font-weight: 400;
+}
+
+.footer-logo p {
+  font-size: 16px;
+  line-height: 2.3;
+  margin-top: 20px;
+  color: #555;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex: 2 1 600px;
+  gap: 40px;
+}
+
+.footer-column h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #222;
+  margin-bottom: 2.5rem;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  line-height: 1.5;
+}
+
+.footer-column ul li {
+  margin: 8px 0;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #555;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #000;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  border-top: 1px solid #e8e6e0;
+  margin-top: 20px;
+  padding-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  color: #555;
+}
+
+.footer-bottom a {
+  color: #b37d6a;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+.footer-socials a {
+  margin-left: 15px;
+  font-size: 25px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: #b37d6a;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+  }
+
+  .footer-links {
+    flex-direction: column;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .app-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .app-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .app-description {
+    margin: 0 auto 30px;
+  }
+}
+
+/* ===========================
+   SMALL SCREEN RESPONSIVENESS
+=========================== */
+@media (max-width: 480px) {
+  .books-container, .books-container1 {
+    justify-content: center;
+  }
+  .book-card, .book-card1 {
+    width: 45%;
+  }
+  .brand-container {
+    gap: 20px;
+  }
+  .menu a {
+    font-size: 14px;
+  }
+}
