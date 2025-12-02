@@ -1,0 +1,1260 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booksaw - Life Of The Wild</title>
+  <style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        }
+
+        
+        .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #f8f7f2;
+        padding: 20px 70px;
+        font-size: 2rem;
+        color: #555;
+        }
+
+        .social-icons i {
+        margin-right: 15px;
+        font-size: 1rem;
+        cursor: pointer;
+        color: #444;
+        transition: 0.3s;
+        }
+
+        .social-icons i:hover {
+        color: #c19d60;
+        }
+
+        .user-links a {
+        text-decoration: none;
+        color: #444;
+        margin-left: 20px;
+        font-size: 14px;
+        }
+
+        .user-links a i {
+        margin-right: 5px;
+        }
+
+        .user-links a:hover {
+        color: #c19d60;
+        }
+
+        
+        .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 70px;
+        background: #f8f7f2;
+        border-top: 1px solid #eaeaea;
+        border-bottom: 1px solid #eaeaea;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        }
+
+        .logo {
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: #000;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .logo span {
+        color: #888;
+        font-weight: 400;
+        }
+
+        
+        .menu a {
+        text-decoration: none;
+        color: #555;
+        margin: 0 18px;
+        font-size: 15px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        transition: 0.3s;
+        }
+
+        .menu a.active {
+        color: #c19d60;
+        }
+
+        .menu a:hover {
+        color: #000;
+        }
+
+        .dropdown {
+        position: relative;
+        display: inline-block;
+        font-family: Arial, sans-serif;
+        }
+
+        
+        .dropdown > a {
+        text-decoration: none;
+        color: #333;
+        padding: 10px 15px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+        transition: color 0.3s;
+        }
+
+        .dropdown > a:hover {
+        color: #000000; 
+        }
+
+       
+        .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        min-width: 150px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-radius: 5px;
+        z-index: 1000;
+        overflow: hidden;
+        }
+
+        
+        .dropdown-content a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #333;
+        transition: background 0.3s, color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+        background-color: #c4c8cd; 
+        color: #fff;
+        }
+
+        
+        .dropdown:hover .dropdown-content {
+        display: block;
+        }
+
+
+        
+        .hero-container {
+        width: 100%;
+        background-color: #f8f7f2; 
+        padding: 80px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+
+        .hero {
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap; 
+        gap: 40px;
+        }
+
+        
+        .hero-text {
+        flex: 1 1 45%;
+        color: #333;
+        }
+
+        .hero-text h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        line-height: 1.2;
+        color: #1c1c1c;
+        margin-bottom: 20px;
+        font-family: "Playfair Display", serif;
+        }
+
+        .hero-text p {
+        font-size: 1.1rem;
+        color: #555;
+        line-height: 1.6;
+        font-family: "Poppins", sans-serif;
+        max-width: 500px;
+        }
+
+        
+        .hero-image {
+        flex: 1 1 45%;
+        display: flex;
+        justify-content: center;
+        }
+
+        .hero-image img {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 10px;
+        transition: transform 0.4s ease;
+        }
+
+        .hero-image img:hover {
+        transform: scale(1.03);
+        }
+
+        
+
+        
+        .brand-section {
+        width: 100%;
+        background-color: #f8f7f2;
+        padding: 60px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+
+        .brand-container {
+        width: 85%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 40px;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        padding: 30px 0;
+        }
+
+        
+        .brand-container img {
+        max-width: 140px;
+        opacity: 0.6;
+        filter: grayscale(100%);
+        transition: all 0.3s ease;
+        }
+
+        .brand-container img:hover {
+        opacity: 1;
+        filter: grayscale(0%);
+        transform: scale(1.05);
+        }
+
+        
+        
+
+
+       
+        .Featured {
+        background-color: #f8f7f2;
+        padding: 50px 0;
+        }
+
+        .featured-books-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        }
+
+        .quality-items-text {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+        letter-spacing: 1px;
+        color: #666;
+        }
+
+        .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        font-weight: 700;
+        }
+
+        .books-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        }
+
+        .book-card {
+        background: #f8f7f2;
+        border-radius: 4px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        padding: 15px;
+        width: 22%;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        }
+
+        .book-card:hover {
+        transform: translateY(-10px);
+        }
+
+        .book-image-container {
+        position: relative;
+        border-radius: 6px;
+        margin-bottom: 15px;
+        overflow: hidden;
+        }
+
+        .book-image-container img {
+        width: 100%;
+        height: auto;
+        }
+
+        .cart-text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: black;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        font-weight: bold;
+        font-size: 16px;
+        opacity: 0;
+        transform: translateY(100%);
+        }
+
+        .book-image-container:hover .cart-text {
+        opacity: 1;
+        transform: translateY(0);
+        }
+
+        .author {
+        font-size: 0.85rem;
+        color: #555;
+        margin-bottom: 10px;
+        }
+
+        .price {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #c19d60;
+        }
+
+        
+        .Middle {
+        background-color: #f8f7f2;
+        padding: 50px 0;
+        }
+
+        .middle-content {
+        background-color: #f8f7f2;
+        padding: 50px 0;
+        }
+
+        .middle-content .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        }
+
+        .book-image {
+        width: 40%;
+        margin-right: 20px;
+        }
+
+        .book-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .book-info {
+        width: 60%;
+        }
+
+        .title-divider {
+        border: 0;
+        height: 1px;
+        background: #ccc;
+        width: 60px;
+        margin: 20px 0;
+        }
+
+        .book-title {
+        font-size: 36px;
+        margin-bottom: 20px;
+        }
+
+        .book-description {
+        font-size: 16px;
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        max-width: 500px;
+        font-family: "Poppins", sans-serif;
+        }
+
+        .book-price {
+        font-size: 24px;
+        font-weight: bold;
+        color: #c19d60; 
+        margin-bottom: 25px;
+        font-family: "Playfair Display", serif;
+        }
+
+        .shop-link {
+        background-color: #c19d60; 
+        color: #fff;
+        padding: 12px 30px;
+        text-decoration: none;
+        border-radius: 30px;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        display: inline-block;
+        }
+
+        .shop-link:hover {
+        background-color: #000; 
+        color: #fff;
+        transform: translateY(-3px); 
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+       
+        .Popular {
+        padding: 70px 0;
+        background-color: #f8f7f2;
+        font-family: "Poppins", sans-serif;
+        }
+
+        .popular-books-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        }
+
+        .quality-items-text1 {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        color: #888;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        }
+
+        .section-title1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        letter-spacing: 1px;
+        color: #222;
+        font-family: "Playfair Display", serif;
+        }
+
+        
+        .items {
+        margin-bottom: 40px;
+        font-weight: bold;
+        }
+
+        .items a {
+        text-decoration: none;
+        color: #333;
+        margin: 0 10px;
+        padding: 6px 14px;
+        border: 1px solid transparent;
+        border-radius: 30px;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        }
+
+        .items a:hover,
+        .items a.active {
+        background-color: #c19d60; /* gold accent */
+        color: #fff;
+        border-color: #c19d60;
+        }
+
+        
+        .books-container1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        }
+
+        .book-card1 {
+        background: #f8f7f2;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        padding: 15px;
+        width: 23%;
+        text-align: left;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        }
+
+        .book-card1:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        
+        .book-image-container1 {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 15px;
+
+        }
+
+        .book-image-container1 img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+        }
+
+        .book-card1:hover img {
+        transform: scale(1.05);
+        }
+
+        .cart-text1 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        text-align: center;
+        padding: 10px;
+        font-weight: 600;
+        font-size: 15px;
+        opacity: 0;
+        transform: translateY(100%);
+        transition: all 0.3s ease;
+        }
+
+        .book-image-container1:hover .cart-text1 {
+        opacity: 1;
+        transform: translateY(0);
+        }
+
+        
+        .book-card1 h3 {
+        font-size: 1rem;
+        color: #222;
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: center;
+        }
+
+        .author1 {
+        font-size: 0.9rem;
+        color: #777;
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: center;
+        }
+
+        .price1 {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #c19d60;
+        display: flex;
+        justify-content: center;
+        }
+
+
+        .books-container1 {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        }
+
+        .book-card1 {
+        background: #f8f7f2;
+        border-radius: 4px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        padding: 15px;
+        width: 22%;
+        cursor: pointer;
+        }
+
+        .book-card1:hover {
+        transform: translateY(-10px);
+        }
+
+        .book-image-container1 {
+        position: relative;
+        border-radius: 6px;
+        margin-bottom: 15px;
+        overflow: hidden;
+        }
+
+        .book-image-container1 img {
+        width: 100%;
+        height: auto;
+        }
+
+        .cart-text1 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: black;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        font-weight: bold;
+        font-size: 16px;
+        opacity: 0;
+        transform: translateY(100%);
+        }
+
+        .book-image-container1:hover .cart-text1 {
+        opacity: 1;
+        transform: translateY(0);
+        }
+
+        .author1 {
+        font-size: 0.85rem;
+        color: #555;
+        margin-bottom: 10px;
+        }
+
+        .price1 {
+        font-size: 1rem;
+        font-weight: bold;
+        }
+
+        .book-card1 h3 {
+        font-size: 18px;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        }
+
+        
+        .app-section {
+        background-color: #f9f7f1;
+        padding: 80px 0;
+        display: flex;
+        justify-content: center;
+        }
+
+        .app-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 60px;
+        /* max-width: 1200px; */
+        width: 60%;
+        flex-wrap: wrap;
+        }
+
+        
+        .app-image img {
+        width: 250px;
+        max-width: 100%;
+        border-radius: 30px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        
+        .app-content {
+        flex: 1;
+        min-width: 300px;
+        }
+
+        .app-title {
+        font-size: 42px;
+        color: #222;
+        margin-bottom: 20px;
+        font-weight: 600;
+        position: relative;
+        }
+
+        .app-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 80px;
+        height: 3px;
+        background-color: #c4a052;
+        }
+
+        .app-description {
+        color: #666;
+        line-height: 1.8;
+        font-size: 16px;
+        margin-bottom: 30px;
+        max-width: 500px;
+        }
+
+        .download-buttons {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        }
+
+        .store-btn img {
+        width: 160px;
+        transition: transform 0.3s ease;
+        }
+
+        .store-btn img:hover {
+        transform: scale(1.05);
+        }
+        
+
+        body {
+        margin: 0;
+        font-family: 'Georgia', serif;
+        background-color: #fffdf7;
+        }
+
+        .footer {
+        background-color: #fdfcf7;
+        padding: 60px ;
+        color: #2b2b2b;
+        border-top: 1px solid #e8e6e0;
+        
+        }
+
+        .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 50px;
+        }
+
+        .footer-logo {
+        flex: 1 1 250px;
+        max-width: 300px;
+        }
+
+        .footer-logo h1 {
+        font-size: 2.2rem;
+        letter-spacing: 1px;
+        }
+
+        .footer-logo span {
+        color: #666;
+        font-weight: 400;
+        }
+
+        .footer-logo p {
+        font-size: 16px;
+        line-height: 2.3;
+        margin-top: 20px;
+        color: #555;
+        }
+
+        .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        flex: 2 1 600px;
+        gap: 40px;
+        }
+
+        .footer-column h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: #222;
+        margin-bottom: 2.5rem;
+        }
+
+        .footer-column ul {
+        list-style: none;
+        padding: 0;
+        line-height: 1.5;
+        }
+
+        .footer-column ul li {
+        margin: 8px 0;
+        }
+
+        .footer-column ul li a {
+        text-decoration: none;
+        color: #555;
+        font-size: 16px;
+        transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+        color: #000;
+        }
+
+       
+        .footer-bottom {
+        border-top: 1px solid #e8e6e0;
+        margin-top: 20px;
+        padding-top: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 15px;
+        color: #555;
+        }
+
+        .footer-bottom a {
+        color: #b37d6a;
+        text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+        text-decoration: underline;
+        }
+
+        .footer-socials a {
+        margin-left: 15px;
+        font-size: 25px;
+        color: #333;
+        transition: color 0.3s ease;
+        }
+
+        .footer-socials a:hover {
+        color: #b37d6a;
+        }
+        @media (max-width: 992px) {
+        .hero {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .hero-text {
+            flex: 1 1 100%;
+            order: 2;
+        }
+
+        .hero-image {
+            flex: 1 1 100%;
+            order: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+        }
+
+        .hero-text p {
+            margin: 0 auto;
+        }
+        }
+
+        @media (max-width: 600px) {
+        .hero-text h1 {
+            font-size: 2.3rem;
+        }
+
+        .hero-text p {
+            font-size: 1rem;
+        }
+
+        .hero-image img {
+            max-width: 350px;
+        }
+        }
+
+        @media (max-width: 992px) {
+        .brand-container {
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .brand-container img {
+            max-width: 110px;
+        }
+        }
+
+        @media (max-width: 600px) {
+        .brand-container {
+            gap: 25px;
+        }
+
+        .brand-container img {
+            max-width: 90px;
+        }
+        }
+        
+        @media (max-width: 768px) {
+        .footer-container {
+            flex-direction: column;
+        }
+
+        .footer-links {
+            flex-direction: column;
+        }
+
+        .footer-bottom {
+            flex-direction: column;
+            text-align: center;
+            gap: 15px;
+        }
+        }
+
+        
+        @media (max-width: 992px) {
+        .app-container {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .app-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .app-description {
+            margin: 0 auto 30px;
+        }
+        }
+
+        
+        @media (max-width: 480px) {
+        .books-container, .books-container1 {
+            justify-content: center;
+        }
+        .book-card, .book-card1 {
+            width: 45%;
+        }
+        .brand-container {
+            gap: 20px;
+        }
+        .menu a {
+            font-size: 14px;
+          }
+        }
+  </style>
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booksaw - Navbar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <div class="social-icons">
+        <i class="bi bi-facebook"></i>
+        <i class="bi bi-twitter"></i>
+        <i class="bi bi-youtube"></i>
+        <i class="bi bi-behance"></i>
+        </div>
+        <div class="user-links">
+        <a href="#"><i class="bi bi-person"></i> Account</a>
+        <a href="#"><i class="bi bi-bag"></i> Cart:(0 $)</a>
+        <a href="#"><i class="bi bi-search"></i></a>
+        </div>
+    </div>
+
+    <!-- Main Navbar -->
+    <header class="navbar">
+        <div class="logo">BOOK<span>SAW</span></div>
+        <nav class="menu">
+        <a href="#home" class="active">Home</a>
+        <div class="dropdown">
+            <a href="#">Pages <i class="bi bi-caret-down-fill"></i></a>
+            <div class="dropdown-content">
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Gallery</a>
+            </div>
+        </div>
+        <a href="#featured">Featured</a>
+        <a href="#popular">Popular</a>
+        <a href="#offer">Offer</a>
+        <a href="#articles">Articles</a>
+        <a href="#download">Download App</a>
+        </nav>
+    </header>
+
+    </body>
+    </html>
+
+
+    <!-- Hero Section -->
+    <div class="hero-container" id="home">
+    <section class="hero">
+        <div class="hero-text">
+        <h1>Life Of The<br>Wild</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Sed eu feugiat amet, libero ipsum enim pharetra hac. 
+            Urna commodo, lacus ut magna velit eleifend. Amet, quis urna, a eu.
+        </p>
+        </div>
+        <div class="hero-image">
+        <img src="https://themewagon.github.io/booksaw/images/main-banner1.jpg" alt="Book cover">
+        </div>
+    </section>
+    </div>
+
+    <!-- Partner / Brand Section -->
+    <div class="Brand">   
+    <section class="brand-section">
+    <div class="brand-container">
+        <div class="brand-item">
+        <img src="https://themewagon.github.io/booksaw/images/client-image1.png" alt="Graduation Cap">
+        </div>
+        <div class="brand-item">
+        <img src="https://themewagon.github.io/booksaw/images/client-image2.png" alt="Flaprise">
+        
+        </div>
+        <div class="brand-item">
+        <img src="https://themewagon.github.io/booksaw/images/client-image3.png" alt="Bookstore">
+        
+        </div>
+        <div class="brand-item">
+        <img src="https://themewagon.github.io/booksaw/images/client-image4.png" alt="Bookdoor">
+        
+        </div>
+        <div class="brand-item">
+        <img src="https://themewagon.github.io/booksaw/images/client-image5.png" alt="Library">
+        
+        </div>
+    </div>
+    </section>
+    </div>
+    <div class="Featured" id="featured">
+    <section class="featured-books-section" >
+            <p class="quality-items-text">SOME QUALITY ITEMS</p>
+            <h2 class="section-title">Featured Books</h2>
+            <div class="books-container">
+                <div class="book-card">
+                    <div class="book-image-container">
+                        <img src="https://themewagon.github.io/booksaw/images/product-item1.jpg" alt="Simple Way Of Piece Life"/>
+                        <div class="cart-text">Add to Cart</div>
+                    </div>
+                    <div>
+                    <h3>Simple Way Of Piece Life</h3>
+                    <p class="author">Armor Ramsey</p>
+                    <p class="price">$ 40.00</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <div class="book-image-container">
+                        <img src="https://themewagon.github.io/booksaw/images/product-item2.jpg" alt="Great Travel At Desert" />
+                        <div class="cart-text">Add to Cart</div>
+                    </div>
+                    <div>
+                    <h3>Great Travel At Desert</h3>
+                    <p class="author">Sanchit Howdy</p>
+                    <p class="price">$ 38.00</p></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-image-container">
+                        <img src="https://themewagon.github.io/booksaw/images/product-item3.jpg" alt="The Lady Beauty Scarlett" />
+                        <div class="cart-text">Add to Cart</div>
+                    </div>
+                    <div>
+                    <h3>The Lady Beauty Scarlett</h3>
+                    <p class="author">Arthur Doyle</p>
+                    <p class="price">$ 45.00</p></div>
+                </div>
+                <div class="book-card">
+                    <div class="book-image-container">
+                        <img src="https://themewagon.github.io/booksaw/images/product-item4.jpg" alt="Once Upon A Time" />
+                        <div class="cart-text">Add to Cart</div>
+                    </div>
+                    <div>
+                    <h3>Once Upon A Time</h3>
+                    <p class="author">Klien Marry</p>
+                    <p class="price">$ 35.00</p></div>
+                </div>
+            </div>
+        </section>
+        </div>
+        <div class="Middle">
+    <section class="middle-content">
+    <div class="container" id="offer">
+        <div class="book-image">
+        <img src="https://themewagon.github.io/booksaw/images/single-image.jpg" alt="Book Image">
+        </div>
+        <div class="book-info">
+        <h2 class="section-title">OFFERED BOOK BY TODAY</h2>
+        <hr class="title-divider">
+        <p class="author-name">By Timbur Hood</p>
+        <h1 class="book-title">Birds Gonna Be Happy</h1>
+        <p class="book-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero ipsum enim pharetra hac.</p>
+        <p class="book-price">$45.00 -> $20.00</p>
+        <a href="#" class="shop-link">Shop It Now →</a>
+        </div>
+    </div>
+    </section>
+    </div>
+    <div class="Popular" id="popular">
+    <section class="popular-books-section" >
+            <p class="quality-items-text1">SOME QUALITY ITEMS</p>
+            <h2 class="section-title1">Popular Books</h2>
+            <div class="items">
+                <a href="#books">All Genre</a>
+                <a href="#books">Business</a>
+                <a href="#books">Technology</a>
+                <a href="#books">Romantic</a>
+                <a href="#books">Adventure</a>
+            </div>
+            <div class="books-container1" id="books">
+                <div class="book-card1">
+                    <div class="book-image-container1">
+                        <img src="https://themewagon.github.io/booksaw/images/tab-item1.jpg" alt="Simple Way Of Piece Life"/>
+                        <div class="cart-text1">Add to Cart</div>
+                    </div>
+                    <div>
+                    <h3>Simple Way Of Piece Life</h3>
+                    <p class="author1">Armor Ramsey</p>
+                    <p class="price1">$ 40.00</p>
+                    </div>
+                </div>
+                <div class="book-card1">
+                    <div class="book-image-container1">
+                        <img src="https://themewagon.github.io/booksaw/images/tab-item2.jpg" alt="Great Travel At Desert" />
+                        <div class="cart-text1">Add to Cart</div>
+                    </div>
+                    <div>
+                    <h3>Great Travel At Desert</h3>
+                    <p class="author1">Sanchit Howdy</p>
+                    <p class="price1">$ 38.00</p></div>
+                </div>
+                <div class="book-card1">
+                    <div class="book-image-container1">
+                        <img src="https://themewagon.github.io/booksaw/images/tab-item3.jpg" alt="The Lady Beauty Scarlett" />
+                        <div class="cart-text1">Add to Cart</div>
+                    </div>
+                    <div>
+                    <h3>The Lady Beauty Scarlett</h3>
+                    <p class="author1">Arthur Doyle</p>
+                    <p class="price1">$ 45.00</p></div>
+                </div>
+                <div class="book-card1">
+                    <div class="book-image-container1">
+                        <img src="https://themewagon.github.io/booksaw/images/tab-item4.jpg" alt="Once Upon A Time" />
+                        <div class="cart-text1">Add to Cart</div>
+                    </div>
+                    <div>
+                    <h3>Once Upon A Time</h3>
+                    <p class="author1">Klien Marry</p>
+                    <p class="price1">$ 35.00</p></div>
+                </div>
+            </div>
+        </section>
+        </div>
+        <section class="app-section" id="download">
+    <div class="app-container">
+        <!-- Left: Phone Image -->
+        <div class="app-image">
+        <img src="https://themewagon.github.io/booksaw/images/device.png" alt="App Preview">
+        </div>
+
+        <!-- Right: Text Content -->
+        <div class="app-content" >
+        <h2 class="app-title">Download Our App Now !</h2>
+        <p class="app-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Sagittis sed ptibus liberolectus nonet psryroin. 
+            Amet sed lorem posuere sit iaculis amet, ac urna. 
+            Adipiscing fames semper erat ac in suspendisse iaculis.
+        </p>
+
+        <div class="download-buttons" >
+            <a href="#" class="store-btn">
+            <img src="https://themewagon.github.io/booksaw/images/google-play.jpg" alt="Google Play">
+            </a>
+            <a href="#" class="store-btn">
+            <img src="https://themewagon.github.io/booksaw/images/app-store.jpg" alt="App Store">
+            </a>
+        </div>
+        </div>
+    </div>
+    </section>
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+        <div class="footer-logo">
+            <h1>BOOK<span>SAW</span></h1>
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Sagittis sed ptibus liberolectus nonet psyroin.
+            Amet sed lorem posuere sit iaculis amet, ac urna.
+            Adipiscing fames semper erat ac in suspendisse iaculis.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <div class="footer-column">
+            <h3>About Us</h3>
+            <ul>
+                <li><a href="#">Vision</a></li>
+                <li><a href="#">Articles</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Service Terms</a></li>
+                <li><a href="#">Donate</a></li>
+            </ul>
+            </div>
+
+            <div class="footer-column">
+            <h3>Discover</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Books</a></li>
+                <li><a href="#">Authors</a></li>
+                <li><a href="#">Subjects</a></li>
+                <li><a href="#">Advanced Search</a></li>
+            </ul>
+            </div>
+
+            <div class="footer-column">
+            <h3>My Account</h3>
+            <ul>
+                <li><a href="#">Sign In</a></li>
+                <li><a href="#">View Cart</a></li>
+                <li><a href="#">My Wishlist</a></li>
+                <li><a href="#">Track My Order</a></li>
+            </ul>
+            </div>
+
+            <div class="footer-column">
+            <h3>Help</h3>
+            <ul>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Report a Problem</a></li>
+                <li><a href="#">Suggesting Edits</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            </div>
+        </div>
+        </div>
+
+        <div class="footer-bottom">
+        <p>© 2022 All rights reserved. Free HTML Template by 
+            <a href="#">TemplatesJungle</a>
+        </p>
+        <div class="footer-socials">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+            <a href="#"><i class="bi bi-behance"></i></a>
+        </div>
+        </div>
+    </footer>
+
+</body>
+</html>
